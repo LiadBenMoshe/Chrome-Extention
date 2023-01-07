@@ -1,0 +1,34 @@
+{
+  "name": "Check This Website",
+  "description": "Share and rate website community.",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "/images/websites-article-16px.png",
+    "32": "/images/websites-article-32px.png",
+    "48": "/images/websites-article-48px.png",
+    "128": "/images/websites-article-128px.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "open",
+    "default_icon": {
+      "16": "/images/websites-article-16px.png",
+      "32": "/images/websites-article-32px.png",
+      "48": "/images/websites-article-48px.png",
+      "128": "/images/websites-article-128px.png"
+    }
+  },
+  "options_page": "options.html",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["https://www.google.com/*"]
+}
