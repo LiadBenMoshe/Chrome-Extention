@@ -13,16 +13,4 @@ function addNew(obj) {
     .catch((error) => console.error(error));
 }
 
-function getFiveUrls() {
-  let myData;
-
-  fetch("https://example.com/data")
-    .then((response) => response.json())
-    .then((data) => {
-      myData = data;
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-export { addNew, getFiveUrls };
+export { addNew };

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { websites } from "./Data";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
 import { getImageUrl } from "./GetImage";
@@ -8,21 +6,19 @@ import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import "./DataList.css";
 
-export default function List() {
+export default function DataList(props) {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   let listItems;
-  let myData = websites();
-  console.log(websites());
-  listItems = myData.map((website) => (
+  listItems = props.allData.map((website) => (
     <li key={website._id}>
       <CardHeader
         avatar={<Avatar src={getImageUrl()}></Avatar>}
         title={
           <p>
-            <b>Likes: {website.likes}</b>
+            <b>Likes: {Math.floor(Math.random() * 10544)}</b>
             <br></br>
-            <b>{website.name} : </b>
-            <a href="https://hankhank10.github.io/fakeface/">Link</a>
+            <b>{website.websiteName} : </b>
+            <a href={website.urlAddress}>Link</a>
           </p>
         }
         action={
@@ -35,7 +31,6 @@ export default function List() {
       />
     </li>
   ));
-  console.log(listItems);
   return (
     <div style={{ listStyleType: "none", padding: "0px" }}>
       <h1>

@@ -1,5 +1,7 @@
 /*global chrome*/
-import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";
+import { DoubleBubble } from "react-spinner-animated";
+import "react-spinner-animated/dist/index.css";
 import "./App.css";
 import styled from "styled-components";
 import WebList from "./WebList";
@@ -55,6 +57,27 @@ function activateLasers() {
 }
 
 function App() {
+  const [allData, setAllData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://mongo-api-4hyk.onrender.com/myfivecollection")
+      .then((response) => response.json())
+      .then((data) => setAllData(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  //if (!allData) {
+  if (true) {
+    return (
+      <DoubleBubble
+        text={"Loading..."}
+        bgColor={"#FFFFFF"}
+        center={false}
+        width={"500px"}
+        height={"600px"}
+      />
+    );
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -62,7 +85,7 @@ function App() {
           <code>Check This Website</code>
         </p>
       </header>
-      <WebList></WebList>
+      <WebList allData={allData}></WebList>
       <Button onClick={activateLasers}>Activate Docks</Button>
     </div>
   );

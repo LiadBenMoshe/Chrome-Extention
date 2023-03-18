@@ -8,7 +8,7 @@ import "./WebList.css";
 import backgroundImage from "./backgroundPhoto/Background_for_website_addresses.png";
 import Container from "./Container/index";
 import DataList from "./DataList";
-import { addNew, getFiveUrls } from "./MongoDB";
+import { addNew } from "./MongoDB";
 
 const styles = {
   paperContainer: {
@@ -30,7 +30,7 @@ function isNotEmptyString(str) {
   return str.trim().length > 0;
 }
 
-const WebList = () => {
+const WebList = (props) => {
   const triggerText = "Add New Page";
   const onSubmit = (event) => {
     event.preventDefault(event);
@@ -45,11 +45,10 @@ const WebList = () => {
       isNotEmptyString(newObject.advertiser)
     ) {
       console.log(newObject);
+      //addNew(newObject);
     } else {
       console.log("The details are not valid");
     }
-
-    //addNew(newObject);
   };
 
   const [showResults, setShowResults] = React.useState(false);
@@ -100,7 +99,7 @@ const WebList = () => {
           ) : null}
         </div>
         <div id="myDataList">
-          <DataList></DataList>
+          <DataList allData={props.allData}></DataList>
         </div>
       </Paper>
     </div>
