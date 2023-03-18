@@ -1,0 +1,6 @@
+#myDataList {
+  padding: 1px;
+}
+#myDataList > div > li > div {
+  padding: 10px;
+}

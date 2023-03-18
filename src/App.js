@@ -59,7 +59,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          <code>Welcome</code>
+          <code>Check This Website</code>
         </p>
       </header>
       <WebList></WebList>

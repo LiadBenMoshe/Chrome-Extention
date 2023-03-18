@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Form } from '../Form';
-import FocusTrap from 'focus-trap-react';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Form } from "../Form";
+import FocusTrap from "focus-trap-react";
 export const Modal = ({
   onClickOutside,
   onKeyDown,
   modalRef,
   buttonRef,
   closeModal,
-  onSubmit
+  onSubmit,
 }) => {
   return ReactDOM.createPortal(
     <FocusTrap>

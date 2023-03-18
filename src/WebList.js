@@ -7,38 +7,61 @@ import AddPinIcon from "@material-ui/icons/AddCircle";
 import "./WebList.css";
 import backgroundImage from "./backgroundPhoto/Background_for_website_addresses.png";
 import Container from "./Container/index";
+import DataList from "./DataList";
+import { addNew, getFiveUrls } from "./MongoDB";
+
 const styles = {
   paperContainer: {
     backgroundImage: `url(${backgroundImage})`,
-    minHeight: "500px",
+    minHeight: "494px",
   },
 };
+
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function isNotEmptyString(str) {
+  return str.trim().length > 0;
+}
 
 const WebList = () => {
   const triggerText = "Add New Page";
   const onSubmit = (event) => {
     event.preventDefault(event);
-    console.log(event.target.name.value);
-    console.log(event.target.email.value);
+    let newObject = {
+      websiteName: event.target.nameOfWebsite.value,
+      urlAddress: event.target.email.value,
+      advertiser: event.target.yourName.value,
+    };
+    if (
+      isValidUrl(newObject.urlAddress) &&
+      isNotEmptyString(newObject.websiteName) &&
+      isNotEmptyString(newObject.advertiser)
+    ) {
+      console.log(newObject);
+    } else {
+      console.log("The details are not valid");
+    }
+
+    //addNew(newObject);
   };
 
   const [showResults, setShowResults] = React.useState(false);
   const [value, setValue] = React.useState(0);
 
-  const [myList, setMyList] = useState([
-    "999XXXXXXX",
-    "8575XXXXXX",
-    "99XXXXXXXX",
-  ]);
-
   const handleChange = (event, newValue) => {
     if (newValue == 0) {
-      setMyList(["999XXXXXXX", "8575XXXXXX", "99XXXXXXXX"]);
-      document.getElementById("mylist").style.display = "block";
+      document.getElementById("myDataList").style.display = "block";
       setShowResults(false);
       setValue(0);
     } else {
-      document.getElementById("mylist").style.display = "none";
+      document.getElementById("myDataList").style.display = "none";
       setValue(1);
       setShowResults(true);
     }
@@ -76,12 +99,9 @@ const WebList = () => {
             <Container triggerText={triggerText} onSubmit={onSubmit} />
           ) : null}
         </div>
-
-        <ul id="mylist">
-          <li>{myList[0]}</li>
-          <li>{myList[1]}</li>
-          <li>{myList[2]}</li>
-        </ul>
+        <div id="myDataList">
+          <DataList></DataList>
+        </div>
       </Paper>
     </div>
   );
