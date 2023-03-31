@@ -1,7 +1,7 @@
 {
   "name": "Check This Website",
   "description": "Share and rate website community.",
-  "version": "0.1.0",
+  "version": "1.0.20",
   "manifest_version": 3,
   "icons": {
     "16": "/images/websites-article-16px.png",
@@ -28,7 +28,5 @@
       "128": "/images/websites-article-128px.png"
     }
   },
-  "options_page": "options.html",
-  "permissions": ["storage", "activeTab", "scripting", "tabs"],
-  "host_permissions": ["https://www.google.com/*"]
+  "options_page": "options.html"
 }

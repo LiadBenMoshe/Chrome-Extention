@@ -13,7 +13,7 @@ import { addNew } from "./MongoDB";
 const styles = {
   paperContainer: {
     backgroundImage: `url(${backgroundImage})`,
-    minHeight: "494px",
+    minHeight: "515px",
   },
 };
 
@@ -31,7 +31,10 @@ function isNotEmptyString(str) {
 }
 
 const WebList = (props) => {
+  const [showResults, setShowResults] = React.useState(false);
+  const [value, setValue] = React.useState(0);
   const triggerText = "Add New Page";
+
   const onSubmit = (event) => {
     event.preventDefault(event);
     let newObject = {
@@ -45,14 +48,11 @@ const WebList = (props) => {
       isNotEmptyString(newObject.advertiser)
     ) {
       console.log(newObject);
-      //addNew(newObject);
+      addNew(newObject); // add new website
     } else {
       console.log("The details are not valid");
     }
   };
-
-  const [showResults, setShowResults] = React.useState(false);
-  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     if (newValue == 0) {
@@ -99,7 +99,10 @@ const WebList = (props) => {
           ) : null}
         </div>
         <div id="myDataList">
-          <DataList allData={props.allData}></DataList>
+          <DataList
+            allData={props.allData}
+            randomNumbers={props.randomNumbers}
+          ></DataList>
         </div>
       </Paper>
     </div>

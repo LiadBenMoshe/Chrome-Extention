@@ -58,6 +58,11 @@ function activateLasers() {
 
 function App() {
   const [allData, setAllData] = useState(null);
+  const [randomNumbers, setRandomsNumbers] = React.useState(
+    Array.from({ length: 5 }, () => Math.floor(Math.random() * 10544)).sort(
+      (a, b) => b - a
+    )
+  );
 
   useEffect(() => {
     fetch("https://mongo-api-4hyk.onrender.com/myfivecollection")
@@ -66,15 +71,14 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
-  //if (!allData) {
-  if (true) {
+  if (!allData) {
     return (
       <DoubleBubble
         text={"Loading..."}
         bgColor={"#FFFFFF"}
         center={false}
         width={"500px"}
-        height={"600px"}
+        height={"495px"}
       />
     );
   }
@@ -82,10 +86,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          <code>Check This Website</code>
+          {" "}
+          <br />
         </p>
       </header>
-      <WebList allData={allData}></WebList>
+      <WebList allData={allData} randomNumbers={randomNumbers}></WebList>
       <Button onClick={activateLasers}>Activate Docks</Button>
     </div>
   );

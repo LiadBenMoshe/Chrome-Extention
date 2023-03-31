@@ -9,16 +9,18 @@ import "./DataList.css";
 export default function DataList(props) {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   let listItems;
-  listItems = props.allData.map((website) => (
+  listItems = props.allData.map((website, index) => (
     <li key={website._id}>
       <CardHeader
         avatar={<Avatar src={getImageUrl()}></Avatar>}
         title={
           <p>
-            <b>Likes: {Math.floor(Math.random() * 10544)}</b>
+            <b>Likes: {props.randomNumbers[index]}</b>
             <br></br>
             <b>{website.websiteName} : </b>
-            <a href={website.urlAddress}>Link</a>
+            <a href={website.urlAddress} target="_blank">
+              Link
+            </a>
           </p>
         }
         action={
