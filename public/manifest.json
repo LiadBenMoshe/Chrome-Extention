@@ -1,7 +1,7 @@
 {
   "name": "Check This Website",
   "description": "Share and rate website community.",
-  "version": "1.0.20",
+  "version": "1.0.23",
   "manifest_version": 3,
   "icons": {
     "16": "/images/websites-article-16px.png",

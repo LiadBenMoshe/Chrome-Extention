@@ -91,7 +91,7 @@ function App() {
         </p>
       </header>
       <WebList allData={allData} randomNumbers={randomNumbers}></WebList>
-      <Button onClick={activateLasers}>Activate Docks</Button>
+      <Button onClick={activateLasers}>Activate Ducks</Button>
     </div>
   );
 }
