@@ -8,8 +8,8 @@
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/LiadBenMoshe/Chrome-Extention/blob/master/photos/appChrome.png?raw=true)
+![App Screenshot](https://github.com/LiadBenMoshe/Chrome-Extention/blob/master/photos/loading.png?raw=true)
 
 
 ## Tech Stack
